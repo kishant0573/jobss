@@ -1,7 +1,7 @@
 <div class="row" style="border-bottom: 1px solid black; padding-bottom: 20px;">
 <!-- <div class="row"> -->
     <div class="col-9">
-            <div style="margin-bottom: 10px;"><h1>{{ job['position'] }}</h1></div>
+            <div style="margin-bottom: 10px;"><h1>{{ job['title'] }}</h1></div>
             <div style="color: black; margin-bottom: 5px;"><h3><b>Location: </b>{{ job['location'] }}</h3></div>
             {% if 'salary' in job %}
             <div style="color: black; margin-bottom: 5px;"><h3><b>Salary: {{job['currency']}}</b>{{ job['salary'] }}</h3></div>
@@ -9,6 +9,6 @@
         </div>
     <!-- </div> -->
     <div class="col-3 d-flex align-items-end justify-content-end">
-        <a href="mailto:mailto:vishu2ucer@gmail.com?subject=apply%20for%20 {{ job['position'] }} %20position&body=resume%20%3A%20%3Clink%3E%0D%0Aphone%20number%20%3A%20%3Cnumber%3E%0D%0Anotice%20period%20%3A%20%3Ctime%3E" class="btn btn-primary">Apply</a>
+        <a href="/job/{{job['id']}}" class="btn btn-primary">Apply</a>
     </div>
 </div>

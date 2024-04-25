@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Document</title>
+    <style>
+        /* body {
+            display: flex;
+            justify-content: center;
+            background-color: #d6cdcd;
+            align-items: center;
+            height: 100vh; 
+            margin: 0;
+        } */
+
+        .container {
+            max-width: 720px;
+            margin:0 auto 0 auto;
+            background-color: #fff;
+            /* padding: 20px; */
+            /* border-radius: 15px; */
+        
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        }
+
+
+        h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #110f0f;
+            font-size: 16px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+     <!-- {% include "navbar.html"  %} -->
+     {% include "navbar.html" %}
+    <div class="container" style="margin-top: 20px;">
+        <h3><b>Title: </b></span></h3>
+        <p>{{data.title}}</p>
+        <h3><b>Salary:</b></h3>
+        <p>{{data.salary}}</p>
+        <h3><b>Location:</h3></b></h3>
+        <p>{{data.location}}</p>
+        <h3><b>Responsibilites:</b></h3>
+        {%for line in data.responsibility.split("/n")%}
+        <ul>
+            <li><p>{{line}}</p></li>
+        </ul>
+        {% endfor %}
+        <!-- <p>{{data.responsibility}}</p> -->
+        <h3><b>Requirement:</b></h3>
+        {% for line in data.requirement.split("/n") %}
+        <ul>
+            <li><p>{{line}}</p></li>
+        </ul>
+        {% endfor%}
+        <!-- <p>{{data.requirement}}</p> -->
+        {% include "application_form.html" %}
+    </div>
+</body>
+
+</html>

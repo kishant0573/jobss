@@ -1,0 +1,35 @@
+<h2 style="text-align: center;"><b>Application Form</b></h2>
+<form id="application_form" action="/job/{{data['id']}}/apply"  method="post">
+    <div class="form-group">
+        <label><b>Full Name</b></label>
+        <input type="text" class="form-control" id="full_name" name="full_name" placeholder="ex. Henry Brook">
+    </div>
+    <div class="form-group">
+        <label><b>Email</b></label>
+        <input type="text" class="form-control" id="email_id" name="email_id" placeholder="abc12@gmail.com">
+    </div>
+    <div class="form-group">
+        <label><b>LinkedIn URL</b></label>
+        <input type="text" class="form-control" id="linkedin_url" name="linkedin_url" placeholder="http://linked.com/in/brook">
+    </div>
+    <div class="form-group">
+        <label><b>Work Experience</b></label>
+        <input type="text" class="form-control" id="work_experience" name="work_experience" placeholder="ex. Meta">
+    </div>
+    <div class="form-group">
+        <label><b>Education</b></label>
+        <input type="text" class="form-control" id="Education" name="Education" placeholder="ex. Harvard University">
+    </div>
+    <div class="form-group">
+        <label><b>Resume URL</b></label>
+        <input type="text" class="form-control" id="resume_url" name="resume_url">
+    </div>
+    <button type="submit" class="btn btn-primary"><b>Submit</b></button>
+</form>
+<div style="margin-bottom: 20px;"></div>
+<script>
+    // Reset the form fields on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("application_form").reset();
+    });
+</script>
