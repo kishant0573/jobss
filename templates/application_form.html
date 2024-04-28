@@ -1,12 +1,17 @@
 <h2 style="text-align: center;"><b>Application Form</b></h2>
 <form id="application_form" action="/job/{{data['id']}}/apply"  method="post">
     <div class="form-group">
+    
+        <input type="text" class="form-control d-none" id="position" name="position" value="{{data['title']}}">
+    </div>
+    
+    <div class="form-group">
         <label><b>Full Name</b></label>
-        <input type="text" class="form-control" id="full_name" name="full_name" placeholder="ex. Henry Brook">
+        <input type="text" class="form-control" id="full_name" name="full_name" >
     </div>
     <div class="form-group">
         <label><b>Email</b></label>
-        <input type="text" class="form-control" id="email_id" name="email_id" placeholder="abc12@gmail.com">
+        <input type="text" class="form-control" id="email_id" name="email_id" >
     </div>
     <div class="form-group">
         <label><b>LinkedIn URL</b></label>
@@ -14,15 +19,16 @@
     </div>
     <div class="form-group">
         <label><b>Work Experience</b></label>
-        <input type="text" class="form-control" id="work_experience" name="work_experience" placeholder="ex. Meta">
+        <input type="text" class="form-control" id="work_experience" name="work_experience" >
     </div>
     <div class="form-group">
         <label><b>Education</b></label>
-        <input type="text" class="form-control" id="Education" name="Education" placeholder="ex. Harvard University">
+        <input type="text" class="form-control" id="Education" name="Education" >
     </div>
     <div class="form-group">
-        <label><b>Resume URL</b></label>
-        <input type="text" class="form-control" id="resume_url" name="resume_url">
+        <label for="resume_url"><b>Resume URL</b></label>
+<input type="file" class="form-control" id="resume_url" name="resume_url" accept=".pdf,.doc,.docx,.text">
+
     </div>
     <button type="submit" class="btn btn-primary"><b>Submit</b></button>
 </form>

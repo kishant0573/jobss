@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Login</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .form-signin {
+            max-width: 330px;
+            padding: 1rem;
+            margin: auto;
+        }
+
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
+
+        .form-signin input[type="text"],
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .form-signin button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-signin button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Optional: Customize the form title */
+        h3 {
+            /* text-align: center; */
+            margin-left:44%;
+            margin-bottom: 20px;
+        }
+
+        /* Optional: Customize the form labels */
+        .form-signin label {
+            font-weight: bold;
+        }
+
+       
+        
+    </style>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <h3>Login</h3>
+
+    <form action="/admin/login" method="post" class="form-signin">
+        
+        <label for="user_id">User ID</label><br>
+        <input type="text" id="user_id" name="user_id" required><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" required><br>
+       
+        <button type="submit">Login</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

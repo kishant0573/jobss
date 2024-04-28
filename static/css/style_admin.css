@@ -1,0 +1,63 @@
+/* Apply general styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dee2e6;
+  }
+  
+  .container {
+    max-width: 900px; /* Adjust based on your preference */
+  }
+  
+  /* Apply spacing and alignment */
+  .mt-5 {
+    margin-top: 3rem; /* Adjust based on your preference */
+  }
+  
+  .mt-4 {
+    margin-top: 2rem; /* Adjust based on your preference */
+  }
+  
+  /* Style the cards */
+  .card {
+    border: 1px solid #dee2e6;
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem; /* Adjust based on your preference */
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+
+.table {
+    font-size: 0.875rem; 
+    border: 2px solid #dee2e6;
+    border-collapse: collapse; 
+  }
+
+  .table thead th {
+    border: 2px solid #dee2e6; 
+  }
+  
+  
+  .table tbody td {
+    border: 2px solid #dee2e6; 
+    vertical-align: middle; 
+  }
+  
+
+  @media (max-width: 575.98px) {
+    .table-responsive-sm {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+  }
+  
