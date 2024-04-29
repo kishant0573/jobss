@@ -72,27 +72,25 @@
     <h3>sign In</h3>
     <form id="signup-form" method="post" action="/register_user" class="form-signin">
         <label>Email id</label><br>
-        <input type="text" name="user_id" id="user_id" ><br>
-        {% if email_taken  %}
-        <ul>
-            <li id="email-taken-msg" class="alert alert-warning">Email is already taken</li>
-        </ul>
-        {% endif %}
+        <input type="text" name="user_id" id="user_id" required ><br>
+       
         <label>user name</label><br>
-        <input type="text" name="user_name" id="user_name"><br>
+        <input type="text" name="user_name" id="user_name" required><br>
         <label>Password</label><br>
-        <input type="password" name="password" id="password"><br>
-        <h4 style="color: #0056b3;"><a href="{{ url_for('login') }}" style="text-decoration: underline;">registered? Click here</a></h4>
+        <input type="password" name="password" id="password" required><br>
+        <h4 style="color: #0056b3;"><a href="{{ url_for('login') }}" style="text-decoration: underline;">registered? Click here for login</a></h4>
         <button type="submit">sign In</button>
     </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+{% endwith %}
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"> </script>
 <script>
-    document.getElementById('user_id').addEventListener('input', function() {
-            var emailTakenMsg = document.getElementById('email-taken-msg');
-            if (emailTakenMsg) {
-                emailTakenMsg.remove();
-            }
-        });
+   
 </script>
 </html>

@@ -1,5 +1,5 @@
 from flask import Flask , render_template,request,jsonify,redirect,flash,session,render_template_string
-from database import load_jobs_from_db,load_data_for_id,save_to_db,logins,register,count_application,show_in_table,categories,admin_login
+from database import load_jobs_from_db,load_data_for_id,save_to_db,logins,register,count_application,show_in_table,categories,admin_login,add_jobs
 from functools import wraps
 
 app = Flask(__name__)
@@ -60,6 +60,7 @@ def logout():
 @app.route('/admin_logout')
 def admin_logout():
     session.pop('admin_login', None)
+    return redirect('/home')
 
 @app.route("/authenticate" ,methods=['post','get'])
 def authenticate_user():
@@ -69,7 +70,10 @@ def authenticate_user():
         session['logged_in'] = True
         session['username'] = data['user_id']
         return redirect('/home')
-    return "user not found"
+    else:
+        flash("Please enter correct username and password")
+        return redirect('/login')
+   
 
 @app.route('/login')
 def login():
@@ -89,7 +93,10 @@ def admin_login_route():
     if result:
         session['admin_login'] = True
         return redirect('/admin')
-    return render_template('admin_login.html')
+    flash("enter valid userid and password")
+    return redirect('/admin')
+
+
 @app.route('/admin',methods=['GET','post'])
 @admin_login_required
 def admin():
@@ -99,19 +106,32 @@ def admin():
     # return result_categories
     return render_template('admin.html',data=data['count(*)'],result=result,result_categories=result_categories)
 
+
 @app.route("/register_user",methods=['post','get'])
 def register_user():
     if request.method == 'POST':
         data = request.form
         x  =  register(user_id=data['user_id'],user_name=data['user_name'],password=data['password'])
         if x  == False:
-            return render_template('signup.html',email_taken=True)
+            flash("email is already registered")
+            return redirect('/signup')
         else:
-            return redirect('/login')
+            flash('You are registered! Please log in.')
+            return redirect('/signup')
     else:
         return render_template('login.html')
 
 
+@app.route('/add_job',methods=['POST','get'])
+@admin_login_required
+def add_job():
+    return render_template('add_job.html')
 
+@app.route('/add_job_db',methods=['POST','get'])
+@admin_login_required
+def add_job_db():
+    data = request.form
+    add_jobs(title= data['title'],location= data['location'],salary= data['salary'],currency= data['currency'],requirements= data['requirements'],responsibility = data['responsibility'])
+    return redirect('/admin')
 if __name__ == '__main__':
     app.run(debug=True,port=8000)                  #we can change port also port = 8000 and host also host = :"0.0.0.0"

@@ -59,7 +59,7 @@
 </head>
 <body>
     {% include "navbar.html" %}
-    <h3>Login</h3>
+    <h3>Admin</h3>
 
     <form action="/admin/login" method="post" class="form-signin">
         
@@ -70,7 +70,13 @@
        
         <button type="submit">Login</button>
     </form>
-
+     {% with messages = get_flashed_messages()%}
+     {% if messages%}
+     <div class="alert alert-success" role="alert">
+        {{ messages[0] }}
+    </div>
+     {%endif%}
+     {% endwith %} 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

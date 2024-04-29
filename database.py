@@ -156,5 +156,17 @@ def admin_login(user_id,password):
     finally:
         if connection:
             connection.close()
-            
 
+
+def add_jobs(title,location,salary,currency,requirements,responsibility):
+    connection = None
+    try:
+        connection = get_connection()
+        cursor = connection.cursor()
+        query= "INSERT into jobs(title,location,salary,currency,requirement,responsibility) values(%s,%s,%s,%s,%s,%s)"
+        values = (title,location,salary,currency,requirements,responsibility)
+        cursor.execute(query,values)
+        connection.commit()
+    finally:
+        if connection:
+            connection.close()
